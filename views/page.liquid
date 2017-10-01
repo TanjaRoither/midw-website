@@ -72,42 +72,69 @@
     {% assign settings_page = true %}
   {% endif %}
 
-
-  <div id="tm-footer" class="tm-footer uk-block uk-block-secondary uk-contrast">
+  <div id="tm-contact-footer" class="contact_footer tm-contact-footer uk-block uk-block-secondary uk-contrast">
     <div class="uk-container uk-container-center">
 
-      <section class="uk-grid uk-grid-match" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+      <section class="contact-footer__content uk-grid uk-grid-match" data-uk-grid-margin>
+        <div class="uk-width-medium-1-3">
+          <p>
+            <strong>Gasthof Roither<br>
+            "Mitten in der Welt"</strong><br>
+            Neußerling 211<br>
+            4175 Herzogsdorf
+          </p>
+        </div>
+        <div class="uk-width-medium-1-3">
+          <dl class="uk-description-list-horizontal">
+            <dt>m |</dt>
+            <dd>gasthof@mitteninderwelt.at</dd>
+            <dt>t |</dt>
+            <dd>07231-24-70</dd>
+            <dt>f |</dt>
+            <dd>07231-24-70-40</dd>
+          </dl>
+        </div>
+        <div class="uk-width-medium-1-3">
+          <dl class="uk-description-list-horizontal">
+            <dt>Sa, So |</dt>
+            <dd>09:00 - 24:00</dd>
+            <dt>Mo - Fr |</dt>
+            <dd>ab 16:00</dd>
+            <dt>Mo, Di |</dt>
+            <dd>Ruhetag</dd>
+          </dl>
+        </div>
+      </section>
 
-          <div class="uk-panel">
+    </div>
+  </div>
+  <div id="tm-legal-footer" class="legal_footer tm-legal-footer uk-block uk-block-secondary uk-contrast">
+    <div class="uk-container uk-container-center">
 
-
-            <ul class="uk-grid uk-grid-medium uk-flex uk-flex-center">
-              {% for navitem in global.content.footer_left %}
-                {% assign link = navitem.link | url %}
-                <li>
-                  <a href="{{ link }}" class="uk-icon-hover">
-                    {% if navitem.icon != blank %}
-                      <i class="uk-icon-small {{ navitem.icon }}"></i>
-                    {% endif %}
-                    {{ navitem.name }}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-
-            <ul class="uk-subnav uk-margin uk-flex uk-flex-center">
-              {% for navitem in global.content.footer_right %}
-                {% assign link = navitem.link | url %}
-                <li>
-                  <a href="{{ link }}">
-                    {{ navitem.name }}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-
+      <section class="legal-footer__content uk-grid uk-grid-match" data-uk-grid-margin>
+        <div class="uk-width-medium-1-3">
+            <span>
+              {{ global.content.footer_legal }}
+            </span>
+        </div>
+        <div class="uk-width-medium-1-3">
+          {% for navitem in global.content.footer_social %}
+            {% assign link = navitem.link | url %}
+              <a href="{{ link }}" class="uk-icon-hover">
+                {% if navitem.icon != blank %}
+                  <i class="uk-icon-small {{ navitem.icon }}"></i>
+                {% endif %}
+                {{ navitem.name }}
+              </a>
+          {% endfor %}
+        </div>
+        <div class="uk-width-medium-1-3">
+          {% for navitem in global.content.footer_impressum %}
+            {% assign link = navitem.link | url %}
+            <a href="{{ link }}">
+              {{ navitem.name }}
+            </a>
+          {% endfor %}
         </div>
       </section>
 
